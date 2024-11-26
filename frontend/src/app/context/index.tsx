@@ -6,6 +6,7 @@ import { createAppKit } from "@reown/appkit/react";
 import { sepolia, zoraSepolia, mainnet } from "@reown/appkit/networks";
 import React, { type ReactNode } from "react";
 import { cookieToInitialState, WagmiProvider, type Config } from "wagmi";
+import { BLETestnet } from "../BLETestnet";
 
 const queryClient = new QueryClient();
 
@@ -26,8 +27,8 @@ const modal = createAppKit({
   themeVariables: {},
   adapters: [wagmiAdapter],
   projectId,
-  networks: [zoraSepolia],
-  defaultNetwork: zoraSepolia,
+  networks: [BLETestnet],
+  defaultNetwork: BLETestnet,
   allowUnsupportedChain: true,
   metadata: metadata,
   features: {
