@@ -1,8 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
+.font-rajdhani {
+  font-family: "Rajdhani", sans-serif;
+}
+
+.rajdhani-light {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rajdhani-regular {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rajdhani-medium {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.rajdhani-semibold {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.rajdhani-bold {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Rajdhani", sans-serif;
+}
+
+.hello {
+  font-family: font-rajdhani !important;
+}
+
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -14,8 +60,46 @@
   }
 }
 
+
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+
+.button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #161b19;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px !important;
+  border-color: #1dd79b;
+}
+
+.button:hover {
+  color: #1dd79b;
+}
+
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #161b19 !important;
+}
+
+.container_color {
+  background-color: #1e2423;
+}
+
+.textcolor {
+  color: #698582;
+  font-size: 20px;
+  padding-top: 5px;
 }
