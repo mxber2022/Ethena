@@ -111,28 +111,30 @@ contract USDeMarketplace is ReentrancyGuard, Ownable {
     }
 
     // Get NFTs listed by the caller (seller)
-    function getMyListedNFTs() public view returns (Listing[] memory) {
-        uint totalListingCount = marketplaceIds.current();
-        uint listingCount = 0;
-        uint index = 0;
+   function getMyListedNFTs() public view returns (Listing[] memory) {
+    uint totalListingCount = marketplaceIds.current();
+    uint listingCount = 0;
+    uint index = 0;
 
-        // Count how many NFTs the caller has listed
-        for (uint i = 0; i < totalListingCount; i++) {
-            if (marketplaceIdToListingItem[i + 1].owner == msg.sender) {
-                listingCount += 1;
-            }
+    // Count how many NFTs the caller has listed
+    for (uint i = 0; i < totalListingCount; i++) {
+        if (marketplaceIdToListingItem[i + 1].seller == msg.sender) {
+            listingCount += 1;
         }
-
-        // Create an array to store the caller's listed NFTs
-        Listing[] memory items = new Listing[](listingCount);
-        for (uint i = 0; i < totalListingCount; i++) {
-            if (marketplaceIdToListingItem[i + 1].owner == msg.sender) {
-                uint currentId = marketplaceIdToListingItem[i + 1].marketplaceId;
-                Listing memory currentItem = marketplaceIdToListingItem[currentId];
-                items[index] = currentItem;
-                index += 1;
-            }
-        }
-        return items;
     }
+
+    // Create an array to store the caller's listed NFTs
+    Listing[] memory items = new Listing[](listingCount);
+    for (uint i = 0; i < totalListingCount; i++) {
+        if (marketplaceIdToListingItem[i + 1].seller == msg.sender) {
+            uint currentId = marketplaceIdToListingItem[i + 1].marketplaceId;
+            Listing memory currentItem = marketplaceIdToListingItem[currentId];
+            items[index] = currentItem;
+            index += 1;
+        }
+    }
+
+    return items;
+}
+
 }
