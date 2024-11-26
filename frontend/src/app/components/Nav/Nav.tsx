@@ -24,44 +24,23 @@ function Nav() {
             </Link>
           </div>
 
-          {/* <div >
-                        <Link href="/Donate" style={{ color: 'black', textDecoration: 'none' }}>
-                            
-                        </Link>
-                    </div>
-
-                    <div >
-                        <Link href="/Bridge" style={{ color: 'black', textDecoration: 'none' }}>
-                        
-                        </Link>
-                    </div>
-
-                    <div >
-                        <Link href="/Presentation" style={{ color: 'black', textDecoration: 'none' }}>
-                        
-                        </Link>
-                    </div>
-*/}
           <div>
             <Link href="" style={{ color: "black", textDecoration: "none" }}>
               <p className={styles.tagline}> Buy Sell NFT using USDe </p>
             </Link>
           </div>
 
-          {/* <div>
-            <Link className={`${styles.btn} rajdhani-medium`} href="/collab/mx">
-              COLLAB
-            </Link>
-          </div> */}
-
           <div>
-            <Link className={`${styles.btn} rajdhani-medium`} href="/collab/mx">
+            <Link className={`${styles.btn} rajdhani-medium`} href="/mynft">
               MyNFTs
             </Link>
           </div>
 
           <div>
-            <Link className={`${styles.btn} rajdhani-medium`} href="/collab/mx">
+            <Link
+              className={`${styles.btn} rajdhani-medium`}
+              href="/mylistednft"
+            >
               MyListedNFT
             </Link>
           </div>
