@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "name": "EthenaNFT",
+  "abis": {
+    "EthenaNFT": {
+      "path": "./EthenaNFT_abi.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "EthenaNFT",
+      "address": "0xceba8803E1f90E4971e1745358B675f00d71E065",
+      "startBlock": 2641121,
+      "chain": "ethena-testnet"
+    }
+  ]
+}

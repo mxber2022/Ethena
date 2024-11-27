@@ -1,0 +1,17 @@
+{
+  "version": "1",
+  "name": "USDeMarketplace",
+  "abis": {
+    "USDeMarketplace": {
+      "path": "./USDeMarketplace_abi.json"
+    }
+  },
+  "instances": [
+    {
+      "abi": "USDeMarketplace",
+      "address": "0x4EEc84B0f4Fb1c035013a673095b1E7e73ea63cc",
+      "startBlock": 2641587,
+      "chain": "ethena-testnet"
+    }
+  ]
+}
