@@ -1,12 +1,11 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
-const apolloclient = new ApolloClient({
-  uri: "https://api.goldsky.com/api/public/project_clzhsxd1aulmx01zzbhjb8f9y/subgraphs/friendtech-arbitrum-sepolia/1.0/gn",
+export const apolloclient_NFT = new ApolloClient({
+  uri: "https://api.goldsky.com/api/public/project_clzhsxd1aulmx01zzbhjb8f9y/subgraphs/EthenaNFT-ethena-testnet/1.0/gn",
   cache: new InMemoryCache(),
 });
 
-export default apolloclient;
-
-//  http://localhost:8000/subgraphs/name/PariMutuelBetting
-
-//https://api.goldsky.com/api/public/project_clzhsxd1aulmx01zzbhjb8f9y/subgraphs/name-mode-testnet/version/gn
+export const apolloclient_NFTMarketPlace = new ApolloClient({
+  uri: "https://api.goldsky.com/api/public/project_clzhsxd1aulmx01zzbhjb8f9y/subgraphs/EthenaNFT-ethena-testnet/1.0/gn",
+  cache: new InMemoryCache(),
+});
