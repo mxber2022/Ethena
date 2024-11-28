@@ -31,6 +31,15 @@ function Nav() {
           </div>
 
           <div>
+            <Link
+              className={`${styles.btn} rajdhani-medium`}
+              href="/marketplace"
+            >
+              MarketPlace
+            </Link>
+          </div>
+
+          <div>
             <Link className={`${styles.btn} rajdhani-medium`} href="/mynft">
               MyNFTs
             </Link>
