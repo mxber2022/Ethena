@@ -29,7 +29,8 @@ const GET_USER_NFTS = gql`
 
 const UserNFTs: React.FC = () => {
   const { address, isConnected } = useAccount();
-  const { writeContract } = useWriteContract();
+  const { writeContract, status, data: dara } = useWriteContract();
+  console.log("dara: ", dara);
 
   const [prices, setPrices] = useState<Record<string, string>>({});
   const [tokenURIs, setTokenURIs] = useState<Record<string, string>>({});
@@ -79,6 +80,8 @@ const UserNFTs: React.FC = () => {
     console.error("GraphQL Error:", error);
     return <div style={styless.error}>Error: {error.message}</div>;
   }
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
 
   const handleListToMarketplace = async (nft: any) => {
     const price = prices[nft.tokenId];
@@ -97,6 +100,8 @@ const UserNFTs: React.FC = () => {
       functionName: "approve",
       args: [myconfig.MARKET_PLACE, nft.tokenId],
     });
+
+    await delay(20000);
 
     await writeContract({
       abi: marketplace_abi,
