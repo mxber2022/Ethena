@@ -8,6 +8,9 @@ import myconfig from "../../../../myconfig.json";
 import { Address } from "viem";
 import { config } from "@/app/mynft/config";
 
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+
 function GetMarketPlaceNFT() {
   const [marketplaceNFTs, setMarketplaceNFTs] = useState<any[]>([]);
   const [currentId, setCurrentId] = useState(1); // Start fetching from ID 1
@@ -70,6 +73,9 @@ function GetMarketPlaceNFT() {
     }
   }, [data, isError]);
 
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
   const handleBuyNFT = async (nft: any) => {
     try {
       console.log(`Buying NFT with Token ID: ${nft.tokenId}`);
@@ -79,7 +85,23 @@ function GetMarketPlaceNFT() {
         functionName: "buyListing",
         args: [nft.tokenId],
       });
-      alert(`NFT with Token ID: ${nft.tokenId} purchased successfully!`);
+      // alert(`NFT with Token ID: ${nft.tokenId} purchased successfully!`);
+      await delay(20000);
+
+      Toastify({
+        text: `NFT with Token ID: ${nft.tokenId} purchased successfully!`,
+        duration: 3000, // 3 seconds
+        close: false,
+        gravity: "top", // Position the toast at the top
+        position: "center", // Center the toast
+        backgroundColor: "black", // Solid dark color
+        stopOnFocus: true, // Prevents the toast from closing on hover
+        style: {
+          border: "2px solid #000", // Black border
+          borderRadius: "10px", // Optional: Rounded edges
+          fontFamily: "'Courier New', monospace",
+        },
+      }).showToast();
     } catch (error) {
       console.error("Error purchasing NFT:", error);
       alert("Failed to purchase NFT. See console for details.");

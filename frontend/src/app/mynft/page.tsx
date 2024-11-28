@@ -14,6 +14,8 @@ import { Address } from "viem";
 import { config } from "./config";
 import { parseEther } from "viem";
 import styles from "./page.module.css";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 // Define the GraphQL query to fetch user NFTs
 const GET_USER_NFTS = gql`
@@ -101,6 +103,21 @@ const UserNFTs: React.FC = () => {
       args: [myconfig.MARKET_PLACE, nft.tokenId],
     });
 
+    Toastify({
+      text: "Approving NFT, Please Wait",
+      duration: 3000, // 3 seconds
+      close: false,
+      gravity: "top", // Position the toast at the top
+      position: "center", // Center the toast
+      backgroundColor: "black", // Solid dark color
+      stopOnFocus: true, // Prevents the toast from closing on hover
+      style: {
+        border: "2px solid #000", // Black border
+        borderRadius: "10px", // Optional: Rounded edges
+        fontFamily: "'Courier New', monospace",
+      },
+    }).showToast();
+
     await delay(20000);
 
     await writeContract({
@@ -109,6 +126,21 @@ const UserNFTs: React.FC = () => {
       functionName: "createListing",
       args: [nft.tokenId, myconfig.NFT_CONTRACT_ADDRESS, parseEther(price)],
     });
+
+    Toastify({
+      text: "Listing NFT, initiated",
+      duration: 3000, // 3 seconds
+      close: false,
+      gravity: "top", // Position the toast at the top
+      position: "center", // Center the toast
+      backgroundColor: "black", // Solid dark color
+      stopOnFocus: true, // Prevents the toast from closing on hover
+      style: {
+        border: "2px solid #000", // Black border
+        borderRadius: "10px", // Optional: Rounded edges
+        fontFamily: "'Courier New', monospace",
+      },
+    }).showToast();
   };
 
   const handlePriceChange = (tokenId: string, value: string) => {
