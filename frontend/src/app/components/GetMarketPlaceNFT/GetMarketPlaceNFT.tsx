@@ -90,24 +90,11 @@ function GetMarketPlaceNFT() {
 
   return (
     <div style={styles.container}>
-      <h2 style={styles.header}>NFTs Listed in the Marketplace</h2>
+      {/* <h2 style={styles.header}>NFTs Listed in the Marketplace</h2> */}
       {marketplaceNFTs.length > 0 ? (
         <div style={styles.grid}>
           {marketplaceNFTs.map((nft, index) => (
             <div key={index} style={styles.card}>
-              <p>
-                <strong>Token ID:</strong> {nft.tokenId}
-              </p>
-              <p>
-                <strong>Price:</strong> {nft.listPrice?.toString()}{" "}
-                <strong>USDe</strong>
-              </p>
-              <p>
-                <strong>Seller:</strong> {nft.seller}
-              </p>
-              <p>
-                <strong>Contract:</strong> {nft.nftAddress}
-              </p>
               <p>
                 {/* <strong>Token URI:</strong>{" "} */}
                 {tokenURIs[nft.tokenId] ? (
@@ -120,7 +107,24 @@ function GetMarketPlaceNFT() {
                   "Fetching..."
                 )}
               </p>
-              <button style={styles.button} onClick={() => handleBuyNFT(nft)}>
+
+              <p>
+                <strong>Seller:</strong> {nft.seller}
+              </p>
+              <p>
+                <strong>Contract:</strong> {nft.nftAddress}
+              </p>
+              <p>
+                <strong>Token ID:</strong> {nft.tokenId}
+              </p>
+              <p>
+                <strong>Price:</strong> {nft.listPrice?.toString()}{" "}
+                <strong>USDe</strong>
+              </p>
+              <button
+                className={` buttonRegister`}
+                onClick={() => handleBuyNFT(nft)}
+              >
                 Buy NFT
               </button>
             </div>
@@ -151,7 +155,7 @@ const styles = {
     gap: "20px",
   },
   card: {
-    backgroundColor: "#ffffff",
+    backgroundColor: " #1e2423",
     borderRadius: "12px",
     boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
     padding: "20px",
@@ -160,6 +164,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    color: "#698582",
   },
   image: {
     width: "100%",

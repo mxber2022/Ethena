@@ -103,3 +103,66 @@ body {
   font-size: 20px;
   padding-top: 5px;
 }
+
+.ch {
+  color: red;
+}
+
+.buttonRegister {
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #1dd79b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px !important;
+  border-color: #1dd79b;
+}
+
+.buttonRegister:hover {
+  color: black;
+}
+
+.loadingText {
+  font-size: 20px; /* Adjust the font size */
+  color: #1dd79b; /* Dark color for contrast */
+  text-align: center; /* Center the text */
+  margin: 20px; /* Space around the text */
+  animation: fadeIn 0.5s; /* Optional: Add a fade-in effect */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start from transparent */
+  }
+  to {
+    opacity: 1; /* End at full opacity */
+  }
+}
+
+.buttonReject {
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: rgb(222, 14, 14);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px !important;
+  border-color: #1dd79b;
+}
+
+.buttonReject:hover {
+  color: black;
+}
+
+.size {
+  width: 500px;
+  border-radius: 10px;
+  background-color: #1e2423;
+}
+.x {
+  padding-top: 10px;
+  padding-left: 10px;
+}

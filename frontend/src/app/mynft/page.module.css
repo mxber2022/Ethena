@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 700px;
+  height: 400px;
+}
+
+.inputField {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #141517; /* Light blue border */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 15px; /* Space between input and button */
+  transition: border-color 0.3s;
+}
+
+.inputField:focus {
+  border: 2px solid #1dd79b; /* Darker blue when focused */
+  outline: none; /* Remove default outline */
+}
+
+.font-rajdhani {
+  font-family: "Rajdhani", sans-serif; /* Ensure Rajdhani font is imported in your project */
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.input_field {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 17px;
+  outline: none;
+  margin-right: 10px;
+  width: 250px;
+  background-color: #1e2423;
+  color: white;
+}
+.input_field::placeholder {
+  color: #bbb;
+}
+
+.input_field:focus {
+  border-color: #1dd79b;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.message_input_container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

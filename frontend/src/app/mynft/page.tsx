@@ -12,6 +12,8 @@ import { marketplace_abi } from "./marketplace_abi";
 import myconfig from "../../../myconfig.json";
 import { Address } from "viem";
 import { config } from "./config";
+import { parseEther } from "viem";
+import styles from "./page.module.css";
 
 // Define the GraphQL query to fetch user NFTs
 const GET_USER_NFTS = gql`
@@ -66,16 +68,16 @@ const UserNFTs: React.FC = () => {
 
   if (!isConnected || !address) {
     return (
-      <div style={styles.message}>
+      <div style={styless.message}>
         Please connect your wallet to see your NFTs.
       </div>
     );
   }
 
-  if (loading) return <div style={styles.message}>Loading NFTs...</div>;
+  if (loading) return <div style={styless.message}>Loading NFTs...</div>;
   if (error) {
     console.error("GraphQL Error:", error);
-    return <div style={styles.error}>Error: {error.message}</div>;
+    return <div style={styless.error}>Error: {error.message}</div>;
   }
 
   const handleListToMarketplace = async (nft: any) => {
@@ -100,7 +102,7 @@ const UserNFTs: React.FC = () => {
       abi: marketplace_abi,
       address: myconfig.MARKET_PLACE as Address,
       functionName: "createListing",
-      args: [nft.tokenId, myconfig.NFT_CONTRACT_ADDRESS, price],
+      args: [nft.tokenId, myconfig.NFT_CONTRACT_ADDRESS, parseEther(price)],
     });
   };
 
@@ -112,36 +114,38 @@ const UserNFTs: React.FC = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.grid}>
+    <div style={styless.container}>
+      <div style={styless.grid}>
         {data?.transfers?.length > 0 ? (
           data.transfers.map((nft: any) => (
-            <div key={nft.id} style={styles.card}>
-              <h3 style={styles.tokenId}>Token ID: {nft.tokenId}</h3>
-              <p style={styles.detail}>
-                <strong>From:</strong> {nft.from}
+            <div key={nft.id} style={styless.card}>
+              {/* <h3 style={styless.tokenId}>Token ID: {nft.tokenId}</h3> */}
+              {/* <p style={styless.detail}>
+                <strong className={`font-rajdhani font-medium`}>From:</strong>{" "}
+                {nft.from}
               </p>
-              <p style={styles.detail}>
+              <p style={styless.detail}>
                 <strong>To:</strong> {nft.to}
-              </p>
+              </p> */}
               {tokenURIs[nft.tokenId] ? (
                 <img
                   src={tokenURIs[nft.tokenId]}
                   alt={`NFT ${nft.tokenId}`}
-                  style={styles.image}
+                  style={styless.image}
                 />
               ) : (
-                <p style={styles.detail}>Fetching...</p>
+                <p style={styless.detail}>Fetching...</p>
               )}
+
               <input
                 type="text"
-                placeholder="Enter listing price"
+                placeholder="Enter listing price in USDe"
                 value={prices[nft.tokenId] || ""}
                 onChange={(e) => handlePriceChange(nft.tokenId, e.target.value)}
-                style={styles.input}
+                className={`${styles.input_field} font-rajdhani font-medium`}
               />
               <button
-                style={styles.button}
+                className={`${styles.buttonRegister} ${styles.fontRajdhani} buttonRegister`}
                 onClick={() => handleListToMarketplace(nft)}
               >
                 List to Marketplace
@@ -149,7 +153,7 @@ const UserNFTs: React.FC = () => {
             </div>
           ))
         ) : (
-          <div style={styles.message}>No NFTs found for this address.</div>
+          <div style={styless.message}>No NFTs found for this address.</div>
         )}
       </div>
     </div>
@@ -157,12 +161,11 @@ const UserNFTs: React.FC = () => {
 };
 
 // CSS-in-JS Styles
-const styles: Record<string, React.CSSProperties> = {
+const styless: Record<string, React.CSSProperties> = {
   container: {
     maxWidth: "1200px",
     margin: "0 auto",
     padding: "20px",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
   },
   grid: {
     display: "grid",
@@ -170,7 +173,7 @@ const styles: Record<string, React.CSSProperties> = {
     gap: "20px",
   },
   card: {
-    backgroundColor: "#ffffff",
+    backgroundColor: " #1e2423",
     borderRadius: "12px",
     boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
     padding: "20px",
@@ -182,7 +185,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   tokenId: {
     fontSize: "20px",
-    fontWeight: "bold",
+
     marginBottom: "10px",
     color: "#555",
   },
@@ -203,23 +206,7 @@ const styles: Record<string, React.CSSProperties> = {
     textAlign: "center",
     boxSizing: "border-box",
   },
-  button: {
-    marginTop: "15px",
-    padding: "12px 20px",
-    fontSize: "16px",
-    fontWeight: "bold",
-    color: "#ffffff",
-    backgroundColor: "#007bff",
-    border: "none",
-    borderRadius: "8px",
-    cursor: "pointer",
-    transition: "background-color 0.3s, transform 0.2s",
-    width: "100%",
-    maxWidth: "250px",
-  },
-  buttonHover: {
-    backgroundColor: "#0056b3",
-  },
+
   image: {
     width: "100%",
     maxWidth: "250px",

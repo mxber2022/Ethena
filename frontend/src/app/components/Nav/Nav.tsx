@@ -20,7 +20,7 @@ function Nav() {
         <div className={styles.nav__left}>
           <div>
             <Link href="/" style={{ color: "black", textDecoration: "none" }}>
-              <div className={styles.nav__logo}>NFTMarketPlace</div>
+              <div className={styles.nav__logo}>EthenaSea</div>
             </Link>
           </div>
 
