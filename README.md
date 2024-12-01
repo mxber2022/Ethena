@@ -97,7 +97,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For any questions, issues, or suggestions, feel free to open an issue on GitHub or contact us at **support@ethenasea.com**.
-
----
-
-This README provides a clear overview of the project and guides users on how to get started with EthenaSea.
